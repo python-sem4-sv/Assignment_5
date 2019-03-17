@@ -1,8 +1,7 @@
 import requests
 import simplejson as json
 from hacker_script import password_generator
-from multiprocessing import Pool, cpu_count, freeze_support
-from string import ascii_letters
+from multiprocessing import Pool, cpu_count
 
 
 
@@ -25,7 +24,6 @@ def run_parallel():
     passwords = []
     for password in password_generator():
             passwords.append(password)
-    workers = cpu_count()
     pool = Pool()
     pool.map(req_server, passwords)
 
